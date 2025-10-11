@@ -70,16 +70,28 @@ You should see the installed plugins listed.
 
 ---
 
-### Phase 2: Gaming & Microservices 🚧 (Coming Soon)
+### Phase 2: Gaming & Microservices ✅ (Available Now)
 
-**Plugin:** `playeola-gaming` (In Development)
+**Plugin:** `playeola-gaming`
 
-**What Will Be Included:**
+**What's Included:**
 - `slot-game-specialist` agent - Slot mechanics, Phaser, game math
 - `microservices-orchestrator` agent - Service communication, API validation
 - `/sync-service-docs` command - Cross-service documentation sync
 
-**Target Release:** Week 2
+**Installation:**
+```bash
+/plugin install playeola-gaming@playeola-marketplace
+```
+
+**Use Cases:**
+- Slot game development with RTP validation
+- Phaser optimization and performance
+- Cross-service API coordination
+- Breaking change management
+- Service architecture guidance
+
+[View Plugin Details](./playeola-gaming/README.md)
 
 ---
 
@@ -147,8 +159,7 @@ playeola-plugins/                    (marketplace root)
 ├── .claude-plugin/
 │   └── marketplace.json             (marketplace manifest)
 ├── playeola-foundation/             (Phase 1 plugin)
-│   ├── .claude-plugin/
-│   │   └── plugin.json
+│   ├── plugin.json
 │   ├── agents/
 │   │   ├── code-review-expert.md
 │   │   └── documentation-orchestrator.md
@@ -157,7 +168,16 @@ playeola-plugins/                    (marketplace root)
 │   ├── hooks/
 │   │   └── hooks.json
 │   └── README.md
-├── playeola-gaming/                 (Phase 2 - coming soon)
+├── playeola-gaming/                 (Phase 2 plugin)
+│   ├── plugin.json
+│   ├── agents/
+│   │   ├── slot-game-specialist.md
+│   │   └── microservices-orchestrator.md
+│   ├── commands/
+│   │   └── sync-service-docs.md
+│   ├── hooks/
+│   │   └── hooks.json
+│   └── README.md
 ├── playeola-analytics/              (Phase 3 - coming soon)
 └── README.md                        (this file)
 ```
@@ -272,18 +292,19 @@ This is an internal Playeola tool. Improvements welcome:
 
 ## Version History
 
-### v1.0.0 (Current)
+### v1.1.0 (Current)
+- **playeola-gaming** plugin released
+  - `slot-game-specialist` agent
+  - `microservices-orchestrator` agent
+  - `/sync-service-docs` command
+  - Gaming and microservices hooks
+
+### v1.0.0
 - **playeola-foundation** plugin released
   - `code-review-expert` agent
   - `documentation-orchestrator` agent
   - `/smart-commit` command
   - Basic automation hooks
-
-### Coming in v1.1.0 (Phase 2)
-- **playeola-gaming** plugin
-  - Gaming specialists
-  - Microservices orchestration
-  - Service documentation sync
 
 ### Coming in v1.2.0 (Phase 3)
 - **playeola-analytics** plugin

@@ -1,0 +1,81 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "name": "auto-invoke-slot-specialist",
+            "description": "Auto-invokes slot-game-specialist when gaming-related keywords are detected",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(slot|game|rtp|phaser|symbol|reel|payline|paytable|wild|scatter|bonus|free.?spin|multiplier|volatility|hit.?frequency)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "🎰 Game-related changes detected. Consider using the slot-game-specialist agent for gaming expertise."
+            }
+          },
+          {
+            "name": "auto-invoke-microservices-orchestrator",
+            "description": "Auto-invokes microservices-orchestrator when service-related keywords are detected",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(rgs|service|microservice|api|endpoint|backoffice|game.?engine|math.?simulator|websocket|event.?bus)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "🔄 Microservices changes detected. Consider using the microservices-orchestrator agent for cross-service expertise."
+            }
+          },
+          {
+            "name": "suggest-sync-service-docs",
+            "description": "Suggests /sync-service-docs when API changes are detected",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Edit' && (file.path.includes('/api/') || file.path.includes('/controllers/') || file.path.includes('/routes/')) && file.changed",
+            "action": {
+              "type": "suggestion",
+              "message": "📡 API code changed. Consider running /sync-service-docs to update documentation across all affected services."
+            }
+          },
+          {
+            "name": "rtp-validation-reminder",
+            "description": "Reminds to validate RTP when paytable or game math changes",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Edit' && (file.path.includes('paytable') || file.path.includes('math') || file.path.includes('config')) && file.changed",
+            "action": {
+              "type": "suggestion",
+              "message": "🎲 Game math/paytable changed. Remember to validate RTP using Math Simulator and consider using slot-game-specialist for review."
+            }
+          },
+          {
+            "name": "phaser-performance-reminder",
+            "description": "Reminds about performance when Phaser scene files are modified",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Edit' && file.path.match(/scene|phaser/i) && file.changed",
+            "action": {
+              "type": "suggestion",
+              "message": "⚡ Phaser scene modified. Consider performance implications (asset loading, memory leaks, 60fps target). Use slot-game-specialist for review."
+            }
+          },
+          {
+            "name": "cross-service-breaking-change-warning",
+            "description": "Warns when potential breaking API changes are detected",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Edit' && file.path.match(/schema|interface|contract|dto/i) && file.changed",
+            "action": {
+              "type": "warning",
+              "message": "⚠️ API contract/schema changed! This may be a breaking change. Run /sync-service-docs to update all affected services and consider API versioning."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "config": {
+    "version": "1.1.0",
+    "description": "Gaming and microservices hooks - auto-invokes specialists, suggests documentation sync, and provides gaming-specific reminders",
+    "notes": [
+      "Phase 2 hooks for slot-game-specialist and microservices-orchestrator",
+      "Includes RTP validation and Phaser performance reminders",
+      "Cross-service documentation sync suggestions",
+      "Breaking change warnings for API contracts"
+    ]
+  }
+}

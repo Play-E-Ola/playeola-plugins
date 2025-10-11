@@ -1,0 +1,12 @@
+{
+  "name": "playeola-gaming",
+  "version": "1.1.0",
+  "description": "Gaming specialists and microservices orchestration for Playeola's iGaming stack - includes slot mechanics expertise, Phaser integration, and cross-service documentation sync",
+  "author": {
+    "name": "Playeola Team"
+  },
+  "homepage": "https://github.com/Play-E-Ola/playeola-plugins",
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "hooks": "./hooks/"
+}
