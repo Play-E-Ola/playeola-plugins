@@ -1,9 +1,11 @@
 {
-  "name": "playeola-plugins",
+  "name": "playeola-foundation",
   "version": "1.0.0",
   "description": "Official Playeola plugin collection for iGaming development - includes specialized agents, workflow commands, and automation hooks for TypeScript/Node.js projects",
-  "author": "Playeola Team",
-  "homepage": "https://github.com/playeola/playeola-plugins",
+  "author": {
+    "name": "Playeola Team"
+  },
+  "homepage": "https://github.com/Play-E-Ola/playeola-plugins",
   "agents": [
     {
       "name": "code-review-expert",
