@@ -22,6 +22,15 @@
       "author": {
         "name": "Playeola Team"
       }
+    },
+    {
+      "name": "playeola-analytics",
+      "source": "./playeola-analytics",
+      "version": "1.2.0",
+      "description": "Phase 3: Analytics workflows and feature planning - dashboard design, data validation, brainstorming tools, and technical specifications",
+      "author": {
+        "name": "Playeola Team"
+      }
     }
   ]
 }

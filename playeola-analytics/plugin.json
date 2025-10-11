@@ -1,0 +1,12 @@
+{
+  "name": "playeola-analytics",
+  "version": "1.2.0",
+  "description": "Analytics workflows and feature planning for Playeola's iGaming stack - includes dashboard design expertise, data validation, and brainstorming tools",
+  "author": {
+    "name": "Playeola Team"
+  },
+  "homepage": "https://github.com/Play-E-Ola/playeola-plugins",
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "hooks": "./hooks/"
+}

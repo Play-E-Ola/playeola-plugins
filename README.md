@@ -95,17 +95,30 @@ You should see the installed plugins listed.
 
 ---
 
-### Phase 3: Analytics & Planning 🚧 (Coming Soon)
+### Phase 3: Analytics & Planning ✅ (Available Now)
 
-**Plugin:** `playeola-analytics` (In Development)
+**Plugin:** `playeola-analytics`
 
-**What Will Be Included:**
-- `analytics-champion` agent - Dashboard design, data validation
-- `feature-architect` agent - Brainstorming, specs, planning
+**What's Included:**
+- `analytics-champion` agent - Dashboard design, data validation, query optimization
+- `feature-architect` agent - Brainstorming, specs, planning, task breakdown
 - `/implement-analytics` command - Scaffold dashboards/reports
 - `/brainstorm-feature` command - Ideation to implementation
 
-**Target Release:** Week 2-3
+**Installation:**
+```bash
+/plugin install playeola-analytics@playeola-marketplace
+```
+
+**Use Cases:**
+- Building analytics dashboards
+- Data visualization and reporting
+- Feature planning and brainstorming
+- Technical specification creation
+- Implementation planning with estimates
+- Progress tracking (SESSION_STATE.md style)
+
+[View Plugin Details](./playeola-analytics/README.md)
 
 ---
 
@@ -292,7 +305,15 @@ This is an internal Playeola tool. Improvements welcome:
 
 ## Version History
 
-### v1.1.0 (Current)
+### v1.2.0 (Current)
+- **playeola-analytics** plugin released
+  - `analytics-champion` agent - Dashboard design and analytics expertise
+  - `feature-architect` agent - Feature planning and specifications
+  - `/implement-analytics` command - Analytics implementation workflow
+  - `/brainstorm-feature` command - Feature brainstorming and planning
+  - Analytics and planning hooks
+
+### v1.1.0
 - **playeola-gaming** plugin released
   - `slot-game-specialist` agent
   - `microservices-orchestrator` agent
@@ -305,12 +326,6 @@ This is an internal Playeola tool. Improvements welcome:
   - `documentation-orchestrator` agent
   - `/smart-commit` command
   - Basic automation hooks
-
-### Coming in v1.2.0 (Phase 3)
-- **playeola-analytics** plugin
-  - Analytics workflows
-  - Feature planning system
-  - Brainstorming tools
 
 ### Coming in v2.0.0 (Phase 4)
 - **playeola-advanced** plugin

@@ -1,0 +1,122 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "name": "auto-invoke-analytics-champion",
+            "description": "Auto-invokes analytics-champion when analytics/dashboard-related keywords are detected",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(analytics|dashboard|metrics|report|visualization|chart|data.?aggregation|kpi|insight|query.?optimization)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "📊 Analytics-related changes detected. Consider using the analytics-champion agent for dashboard design and data expertise."
+            }
+          },
+          {
+            "name": "auto-invoke-feature-architect",
+            "description": "Auto-invokes feature-architect when planning/brainstorming keywords are detected",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(plan|brainstorm|design|architect|feature|requirement|spec|specification|roadmap|estimate)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "🎯 Planning/design detected. Consider using the feature-architect agent or /brainstorm-feature command for structured planning."
+            }
+          },
+          {
+            "name": "suggest-implement-analytics",
+            "description": "Suggests /implement-analytics when analytics implementation is mentioned",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(implement|create|build).*(analytics|dashboard|report|metrics)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "📈 Analytics implementation detected. Consider using /implement-analytics command for a guided implementation workflow."
+            }
+          },
+          {
+            "name": "suggest-brainstorm-feature",
+            "description": "Suggests /brainstorm-feature when feature planning is mentioned",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(new.?feature|feature.?idea|plan.?feature|design.?feature|brainstorm)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "💡 Feature planning detected. Consider using /brainstorm-feature command for structured ideation and planning."
+            }
+          },
+          {
+            "name": "dashboard-performance-reminder",
+            "description": "Reminds about performance when dashboard/query files are modified",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Edit' && (file.path.match(/dashboard|analytics|query/i) || file.path.includes('/api/analytics/')) && file.changed",
+            "action": {
+              "type": "suggestion",
+              "message": "⚡ Dashboard/analytics code modified. Remember to optimize queries, add caching, and validate with realistic data volumes. Use analytics-champion for performance guidance."
+            }
+          },
+          {
+            "name": "data-validation-reminder",
+            "description": "Reminds to add validation when analytics API endpoints are created",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Write' && file.path.includes('/api/analytics/') && file.changed",
+            "action": {
+              "type": "suggestion",
+              "message": "🔒 New analytics API created. Remember to add Zod validation for request/response schemas. Use analytics-champion for validation patterns."
+            }
+          },
+          {
+            "name": "query-optimization-reminder",
+            "description": "Reminds about query optimization when database query files are modified",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Edit' && (file.path.match(/query|repository|service/i) && file.content.match(/SELECT|INSERT|UPDATE|aggregate/i)) && file.changed",
+            "action": {
+              "type": "suggestion",
+              "message": "🗄️ Database query modified. Consider adding indexes, using materialized views for expensive aggregations, and testing with production-like data volumes."
+            }
+          },
+          {
+            "name": "suggest-session-state-tracking",
+            "description": "Suggests creating SESSION_STATE.md when complex feature work begins",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(start|begin|implement).*(complex|large|big).*(feature|project)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "📝 Complex feature work starting. Consider creating a SESSION_STATE.md document to track progress and decisions. Use /brainstorm-feature to set this up."
+            }
+          },
+          {
+            "name": "testing-strategy-reminder",
+            "description": "Reminds about testing when new analytics features are implemented",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Write' && file.path.match(/dashboard|analytics|metric/i) && !file.path.includes('test') && file.changed",
+            "action": {
+              "type": "suggestion",
+              "message": "🧪 New analytics feature added. Don't forget to add tests: unit tests for data transformations, integration tests for APIs, and E2E tests for user flows."
+            }
+          },
+          {
+            "name": "documentation-update-reminder",
+            "description": "Reminds to update documentation when analytics APIs are modified",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Edit' && file.path.includes('/api/analytics/') && file.changed",
+            "action": {
+              "type": "suggestion",
+              "message": "📚 Analytics API modified. Update API documentation with examples. Use /smart-commit to automatically update docs during commit."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "config": {
+    "version": "1.2.0",
+    "description": "Phase 3 hooks for analytics and feature planning - auto-invokes specialists, provides performance reminders, and suggests workflow commands",
+    "notes": [
+      "Phase 3 hooks for analytics-champion and feature-architect agents",
+      "Includes performance optimization reminders for dashboards",
+      "Data validation and query optimization suggestions",
+      "Feature planning and tracking prompts",
+      "Testing strategy reminders"
+    ]
+  }
+}
