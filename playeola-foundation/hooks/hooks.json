@@ -1,5 +1,9 @@
 {
-  "hooks": [
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
     {
       "name": "auto-invoke-code-review",
       "description": "Automatically suggests code review after significant code edits",
