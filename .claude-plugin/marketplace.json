@@ -7,8 +7,7 @@
   "plugins": [
     {
       "name": "playeola-foundation",
-      "source": "https://github.com/Play-E-Ola/playeola-plugins.git",
-      "subdirectory": "playeola-foundation",
+      "source": "./playeola-foundation",
       "version": "1.0.0",
       "description": "Phase 1: Core foundation with code review, documentation orchestration, and smart commit workflows",
       "author": {
