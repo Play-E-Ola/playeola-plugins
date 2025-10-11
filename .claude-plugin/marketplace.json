@@ -1,0 +1,14 @@
+{
+  "name": "playeola-marketplace",
+  "owner": "Play-E-Ola",
+  "description": "Official Playeola plugin marketplace for iGaming development - specialized agents, workflow commands, and automation hooks",
+  "plugins": [
+    {
+      "name": "playeola-foundation",
+      "source": "./playeola-foundation",
+      "version": "1.0.0",
+      "description": "Phase 1: Core foundation with code review, documentation orchestration, and smart commit workflows",
+      "author": "Playeola Team"
+    }
+  ]
+}
