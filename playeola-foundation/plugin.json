@@ -6,28 +6,7 @@
     "name": "Playeola Team"
   },
   "homepage": "https://github.com/Play-E-Ola/playeola-plugins",
-  "agents": [
-    {
-      "name": "code-review-expert",
-      "path": "./agents/code-review-expert.md",
-      "description": "Comprehensive code review expert - enforces Claude.md rules, identifies issues, suggests fixes",
-      "auto_invoke": false
-    },
-    {
-      "name": "documentation-orchestrator",
-      "path": "./agents/documentation-orchestrator.md",
-      "description": "Maintains project documentation - discovers docs structure, keeps everything in sync",
-      "auto_invoke": false
-    }
-  ],
-  "commands": [
-    {
-      "name": "smart-commit",
-      "path": "./commands/smart-commit.md",
-      "description": "Smart commit workflow: code review → fix issues → update docs → commit"
-    }
-  ],
-  "hooks": {
-    "path": "./hooks/hooks.json"
-  }
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "hooks": "./hooks/hooks.json"
 }
