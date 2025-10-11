@@ -31,6 +31,15 @@
       "author": {
         "name": "Playeola Team"
       }
+    },
+    {
+      "name": "playeola-advanced",
+      "source": "./playeola-advanced",
+      "version": "2.0.0",
+      "description": "Phase 4: Advanced orchestration and PR automation - meta-agent coordination, intelligent task routing, and comprehensive PR generation",
+      "author": {
+        "name": "Playeola Team"
+      }
     }
   ]
 }

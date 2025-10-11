@@ -1,0 +1,102 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "name": "suggest-orchestrate-complex-task",
+            "description": "Suggests /orchestrate when user describes a complex multi-domain task",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(implement|build|create|add).*(feature|system|dashboard|integration|across|full|complete|end.?to.?end)\\b/i) && message.length > 50",
+            "action": {
+              "type": "suggestion",
+              "message": "🎯 Complex task detected. Consider using /orchestrate command for intelligent workflow coordination across all agents and phases."
+            }
+          },
+          {
+            "name": "suggest-create-pr-after-work",
+            "description": "Suggests /create-pr when significant work is complete",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(done|finished|complete|ready).*(pr|pull.?request|review|merge)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "📤 Work complete! Consider using /create-pr command to create a comprehensive, production-ready pull request."
+            }
+          },
+          {
+            "name": "detect-multi-agent-need",
+            "description": "Detects when multiple agents from different phases would be useful",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(game|slot|rtp)\\b/i) && message.match(/\\b(service|api|microservice)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "🔄 Multi-domain task detected (Gaming + Microservices). Use /orchestrate to coordinate slot-game-specialist and microservices-orchestrator agents."
+            }
+          },
+          {
+            "name": "suggest-agent-coordinator-complex",
+            "description": "Suggests agent-coordinator for highly complex coordination tasks",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(coordinate|orchestrate|manage|integrate|across|multiple|all).*(agent|service|component|feature)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "🎭 Complex coordination needed. Consider invoking agent-coordinator to analyze task and coordinate multiple agents."
+            }
+          },
+          {
+            "name": "pr-ready-reminder",
+            "description": "Reminds about PR creation after multiple commits",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Bash' && tool.args?.command?.includes('git commit') && file.commitCount > 3",
+            "action": {
+              "type": "suggestion",
+              "message": "📝 Multiple commits detected. When ready, use /create-pr to create a comprehensive pull request with quality checks."
+            }
+          },
+          {
+            "name": "suggest-orchestrate-for-planning",
+            "description": "Suggests /orchestrate when user wants to plan and implement",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(plan|design).*(and|then).*(implement|build|create)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "📋 Plan + Implementation task detected. Use /orchestrate to coordinate planning (feature-architect) and implementation agents."
+            }
+          },
+          {
+            "name": "cross-phase-coordination-hint",
+            "description": "Hints when task spans foundation + gaming + analytics",
+            "event": "user-prompt-submit",
+            "condition": "message.match(/\\b(dashboard|analytics|metrics)\\b/i) && message.match(/\\b(game|slot|rtp)\\b/i) && message.match(/\\b(test|review|quality)\\b/i)",
+            "action": {
+              "type": "suggestion",
+              "message": "🌟 Task spans all three phases (Foundation + Gaming + Analytics). Perfect use case for /orchestrate command!"
+            }
+          },
+          {
+            "name": "suggest-workflow-after-feature-architect",
+            "description": "After using feature-architect, suggest continuing with orchestrate",
+            "event": "tool-complete",
+            "condition": "tool.name === 'Task' && tool.args?.subagent_type === 'feature-architect'",
+            "action": {
+              "type": "suggestion",
+              "message": "✨ Feature planned! Consider using /orchestrate to coordinate the full implementation workflow based on this plan."
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "config": {
+    "version": "2.0.0",
+    "description": "Phase 4 hooks for advanced orchestration - suggests intelligent workflow coordination, PR creation, and multi-agent collaboration",
+    "notes": [
+      "Phase 4 hooks for agent-coordinator, /orchestrate, and /create-pr",
+      "Detects complex multi-domain tasks",
+      "Suggests PR creation at appropriate times",
+      "Provides intelligent workflow coordination hints",
+      "Cross-phase coordination suggestions"
+    ]
+  }
+}
