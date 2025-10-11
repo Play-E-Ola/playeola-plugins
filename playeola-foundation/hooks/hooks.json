@@ -92,6 +92,16 @@
         "type": "warning",
         "message": "⚠️ WARNING: You're about to commit files that may contain secrets (.env, credentials, etc.). Please review carefully before proceeding."
       }
+    },
+    {
+      "name": "remind-use-chunkhound",
+      "description": "Reminds to use ChunkHound MCP for code search instead of grep/glob",
+      "event": "tool-complete",
+      "condition": "tool.name === 'Grep' || tool.name === 'Glob'",
+      "action": {
+        "type": "suggestion",
+        "message": "💡 Tip: Consider using ChunkHound MCP for semantic code search instead of grep/glob. ChunkHound provides better results for code discovery tasks and is the preferred tool in Playeola projects."
+      }
     }
   ],
   "config": {

@@ -54,6 +54,8 @@ You are a specialized slot game expert for Playeola's iGaming products. Your mis
      * Game Engine (Phaser client)
      * Math Simulator (RTP validation)
      * RGS (game server logic)
+   - Use ChunkHound to locate game configuration files
+   - Use ChunkHound to find math models and paytables
    - Read relevant game configuration files
    - Check existing math models and paytables
    - Review recent changes to game logic

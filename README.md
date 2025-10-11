@@ -43,6 +43,26 @@ You should see the installed plugins listed.
 
 ---
 
+## Recommended Setup
+
+### ChunkHound MCP (Highly Recommended)
+
+All Playeola plugins are designed to use ChunkHound MCP for semantic code search. ChunkHound should be installed **in each Playeola project** where you use these plugins (RGS, Game Engine, Backoffice, etc.).
+
+**Quick Setup:**
+1. Install ChunkHound MCP in your project: [ChunkHound Quickstart Guide](https://chunkhound.github.io/quickstart/)
+2. The plugins will automatically use ChunkHound for code discovery and navigation
+3. Hooks will remind you if you use grep/glob instead of ChunkHound
+
+**Why ChunkHound?**
+- Semantic search understands code meaning, not just text matching
+- Superior for finding implementations, dependencies, and architectural patterns
+- Required for optimal agent performance in code discovery tasks
+
+Note: ChunkHound is installed **per-project**, not in this marketplace repository.
+
+---
+
 ## Available Plugins
 
 ### Phase 1: Core Foundation ✅ (Available Now)
@@ -266,6 +286,15 @@ All plugins automatically adapt to each project:
 **Commit Style:**
 - Matches existing commit message style in your repo
 - Adapts to your team's conventions
+
+### ChunkHound MCP Integration
+
+All plugins are designed to work with ChunkHound MCP for semantic code search:
+- **ChunkHound is the preferred tool for all code search operations**
+- Agents use ChunkHound for code discovery and navigation before grep/glob
+- Provides semantic search powered by local Ollama embeddings
+- Hooks remind users when grep/glob is used instead of ChunkHound
+- Superior results for code understanding and discovery tasks
 
 ---
 

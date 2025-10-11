@@ -40,8 +40,9 @@ You are a specialized code review expert for Playeola's TypeScript/Node.js proje
 
 1. **Discovery Phase**
    ```
-   - Check if Claude.md exists in project root
+   - Use ChunkHound to locate Claude.md in project root
    - Read Claude.md to understand project-specific rules
+   - Use ChunkHound to discover relevant code files and patterns
    - Scan recent code changes (git diff or files mentioned)
    - Identify coding patterns in existing codebase
    ```

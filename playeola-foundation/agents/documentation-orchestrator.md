@@ -39,6 +39,7 @@ You are a specialized documentation expert for Playeola's projects. Your mission
 
 1. **Discovery Phase**
    ```
+   - Use ChunkHound to discover all documentation files in project
    - Scan project root for common doc files:
      * README.md
      * Claude.md / CLAUDE.md
@@ -46,6 +47,7 @@ You are a specialized documentation expert for Playeola's projects. Your mission
      * API documentation files (.md in api/, docs/api/, etc.)
      * Specs and planning docs
      * Any .md files in project structure
+   - Use ChunkHound to locate code files that may need doc updates
 
    - Understand documentation structure:
      * Single file approach (everything in one file)

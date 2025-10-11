@@ -63,6 +63,8 @@ You are a specialized feature planning and architecture expert for Playeola's iG
 1. **Ideation Phase**
    ```
    - Understand the problem or opportunity
+   - Use ChunkHound to discover existing architecture
+   - Use ChunkHound to locate similar features for reference
    - Ask clarifying questions:
      * What problem are we solving?
      * Who are the users?
