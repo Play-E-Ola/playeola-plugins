@@ -1,0 +1,103 @@
+{
+  "hooks": [
+    {
+      "name": "auto-invoke-code-review",
+      "description": "Automatically suggests code review after significant code edits",
+      "event": "tool-complete",
+      "condition": "tool.name === 'Edit' || tool.name === 'Write'",
+      "action": {
+        "type": "suggestion",
+        "message": "💡 Significant code changes detected. Consider running code review with the code-review-expert agent or use /smart-commit to review and commit."
+      }
+    },
+    {
+      "name": "suggest-smart-commit",
+      "description": "Suggests smart commit workflow when multiple files are modified",
+      "event": "user-prompt-submit",
+      "condition": "message.includes('done') || message.includes('finished') || message.includes('ready to commit')",
+      "action": {
+        "type": "suggestion",
+        "message": "✨ Ready to commit? Use /smart-commit to review code, update docs, and create a quality commit."
+      }
+    },
+    {
+      "name": "auto-invoke-agents-gaming",
+      "description": "Auto-invokes slot-game-specialist when gaming-related keywords are detected",
+      "event": "user-prompt-submit",
+      "condition": "message.match(/\\b(slot|game|rtp|phaser|symbol|reel|payline|paytable|wild|scatter|bonus|free.?spin)\\b/i)",
+      "action": {
+        "type": "invoke-agent",
+        "agent": "slot-game-specialist"
+      },
+      "enabled": false,
+      "note": "Enable when slot-game-specialist agent is installed (Phase 2)"
+    },
+    {
+      "name": "auto-invoke-agents-services",
+      "description": "Auto-invokes microservices-orchestrator when service-related keywords are detected",
+      "event": "user-prompt-submit",
+      "condition": "message.match(/\\b(rgs|service|microservice|api|endpoint|backoffice|game.?engine|math.?simulator)\\b/i)",
+      "action": {
+        "type": "invoke-agent",
+        "agent": "microservices-orchestrator"
+      },
+      "enabled": false,
+      "note": "Enable when microservices-orchestrator agent is installed (Phase 2)"
+    },
+    {
+      "name": "auto-invoke-agents-analytics",
+      "description": "Auto-invokes analytics-champion when analytics-related keywords are detected",
+      "event": "user-prompt-submit",
+      "condition": "message.match(/\\b(analytics|dashboard|metrics|report|visualization|chart|data.?aggregation)\\b/i)",
+      "action": {
+        "type": "invoke-agent",
+        "agent": "analytics-champion"
+      },
+      "enabled": false,
+      "note": "Enable when analytics-champion agent is installed (Phase 3)"
+    },
+    {
+      "name": "reminder-claude-md",
+      "description": "Reminds to follow Claude.md rules when explicitly requested",
+      "event": "user-prompt-submit",
+      "condition": "message.match(/\\b(follow|check|enforce).*(claude\\.md|rules|guidelines)\\b/i)",
+      "action": {
+        "type": "invoke-agent",
+        "agent": "code-review-expert",
+        "message": "Invoking code-review-expert to enforce Claude.md rules..."
+      }
+    },
+    {
+      "name": "doc-sync-reminder",
+      "description": "Reminds to sync documentation when API changes are detected",
+      "event": "tool-complete",
+      "condition": "tool.name === 'Edit' && file.path.includes('/api/') && file.changed",
+      "action": {
+        "type": "suggestion",
+        "message": "📚 API code changed. Consider updating documentation with /sync-service-docs or letting documentation-orchestrator handle it during /smart-commit."
+      },
+      "enabled": false,
+      "note": "Enable when /sync-service-docs is installed (Phase 2)"
+    },
+    {
+      "name": "prevent-secret-commits",
+      "description": "Warns when attempting to commit files that may contain secrets",
+      "event": "pre-commit",
+      "condition": "files.some(f => f.name.match(/\\.(env|credentials|secret|key)/))",
+      "action": {
+        "type": "warning",
+        "message": "⚠️ WARNING: You're about to commit files that may contain secrets (.env, credentials, etc.). Please review carefully before proceeding."
+      }
+    }
+  ],
+  "config": {
+    "version": "1.0.0",
+    "description": "Basic hooks for Playeola plugins - auto-invocation, suggestions, and safety checks",
+    "notes": [
+      "Phase 1 hooks are enabled by default",
+      "Phase 2 and 3 hooks are disabled until respective agents are installed",
+      "To enable a hook, set 'enabled: true' or remove the 'enabled: false' field",
+      "Hooks with 'enabled: false' are preserved for future use"
+    ]
+  }
+}
