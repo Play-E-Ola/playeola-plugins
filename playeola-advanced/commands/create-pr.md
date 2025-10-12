@@ -7,6 +7,52 @@ Execute a comprehensive pull request creation workflow that ensures high-quality
 
 ## Workflow
 
+### Phase 0: Context Gathering
+
+**IMPORTANT: Before creating the PR, gather context to write a comprehensive PR description.**
+
+1. **Review Recent Conversation History**
+   ```
+   - Read the last 10-15 messages before this command was invoked
+   - Understand what work was done and why
+   - Note any design decisions, trade-offs, or discussions
+   - Identify the problem being solved or feature being added
+   - Look for testing approaches mentioned
+   - Note any blockers or issues encountered and resolved
+   ```
+
+2. **Check Git Context**
+   ```
+   Run these commands:
+   - `git status` - Verify there are changes/commits
+   - `git branch --show-current` - Get current branch name
+   - `git log origin/main..HEAD --oneline` - See all commits for PR
+   - `git diff origin/main...HEAD --stat` - Overview of all changes
+   - `git diff origin/main...HEAD` - Full diff for analysis
+   ```
+
+3. **Synthesize Work Context**
+   ```
+   Build understanding of the work:
+   - What was implemented/fixed/changed?
+   - Why was this work needed? (from conversation)
+   - What approach was taken? (from conversation + commits)
+   - What files were modified and why?
+   - Were there any challenges overcome?
+   - What testing was done? (from conversation)
+   ```
+
+4. **Use Context for PR Description**
+   ```
+   The gathered context will be used to:
+   - Write accurate "Summary" section
+   - Detail the "Motivation" clearly
+   - List specific "Changes" based on commits
+   - Document "Technical Details" from discussions
+   - Fill "Testing" section with actual testing done
+   - Note any "Breaking Changes" discussed
+   ```
+
 ### Phase 1: Pre-PR Validation
 
 1. **Check Git Status**

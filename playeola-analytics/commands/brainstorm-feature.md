@@ -5,7 +5,64 @@ description: Interactive feature brainstorming and planning workflow - guides fr
 
 Execute a comprehensive feature brainstorming workflow that facilitates ideation, creates technical specifications, and generates actionable implementation plans.
 
+**Feature idea from command:** $ARGUMENTS
+
 ## Workflow
+
+### Phase 0: Context Gathering
+
+**IMPORTANT: Before starting brainstorming, gather context about the feature idea.**
+
+1. **Review Recent Conversation History**
+   ```
+   - Read the last 10-15 messages before this command was invoked
+   - Identify what feature ideas were discussed
+   - Note any user needs, pain points, or problems mentioned
+   - Look for any business goals or success metrics discussed
+   - Check for any technical constraints or considerations mentioned
+   - Identify stakeholder mentions or target users
+   ```
+
+2. **Check Project Context**
+   ```
+   Run these commands:
+   - `pwd` - Identify which project (RGS, Game Engine, Backoffice, etc.)
+   - `git status` - See if any related work is in progress
+   - `git branch --show-current` - Check branch name for hints
+   - `ls -la specs/` or `ls -la plans/` - Check for existing specs/plans
+   ```
+
+3. **Synthesize Feature Context**
+   ```
+   Build understanding:
+   - What feature idea needs brainstorming? (from $ARGUMENTS or conversation)
+   - Why is this feature being considered?
+   - What problem does it solve?
+   - Who benefits from this feature?
+   - Are there existing designs or discussions to build upon?
+   ```
+
+4. **Determine Starting Point**
+   ```
+   Priority order:
+
+   a) If $ARGUMENTS provided: Use as starting point
+      Example: `/brainstorm-feature sticky wilds for slot games`
+      → Start brainstorming sticky wilds
+
+   b) If conversation discussed a feature idea: Reference and confirm
+      Example: User mentioned wanting to add tournaments
+      → Say: "I see you were discussing tournament features. Should I brainstorm that?"
+
+   c) If no clear context: Ask what to brainstorm
+      → Say: "What feature would you like to brainstorm?"
+      → Provide examples: "I can help brainstorm:
+         - New game features (bonus rounds, jackpots, special symbols)
+         - Analytics dashboards
+         - Player engagement features
+         - Backend optimizations
+         - Cross-service features"
+   ```
 
 ### Phase 1: Ideation & Discovery
 

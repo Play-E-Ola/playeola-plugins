@@ -5,7 +5,57 @@ description: Comprehensive analytics implementation workflow - discovers require
 
 Execute a comprehensive analytics implementation workflow that guides from requirements to production-ready analytics features.
 
+**Task from command:** $ARGUMENTS
+
 ## Workflow
+
+### Phase 0: Context Gathering
+
+**IMPORTANT: Before discovering requirements, gather context about what analytics feature is needed.**
+
+1. **Review Recent Conversation History**
+   ```
+   - Read the last 10-15 messages before this command was invoked
+   - Identify what analytics needs were discussed
+   - Note any metrics, dashboards, or reports mentioned
+   - Look for target audience mentions (operators, admins, analysts)
+   - Check for any specific requirements or constraints discussed
+   - Identify data sources mentioned (tables, APIs, events)
+   ```
+
+2. **Check Project Context**
+   ```
+   Run these commands:
+   - `pwd` - Identify which project (RGS, Backoffice, Website, etc.)
+   - `git status` - See if any analytics code is already being worked on
+   - `ls -la src/app/dashboard` or similar - Check for existing dashboards
+   ```
+
+3. **Synthesize Analytics Context**
+   ```
+   Build understanding:
+   - What analytics feature is needed? (from $ARGUMENTS or conversation)
+   - Who is the target audience?
+   - What metrics need to be tracked?
+   - Are there existing analytics to build upon?
+   - What's the urgency/priority?
+   ```
+
+4. **Determine Starting Point**
+   ```
+   Priority order:
+
+   a) If $ARGUMENTS provided: Use as starting point
+      Example: `/implement-analytics player retention dashboard`
+      → Start with player retention requirements
+
+   b) If conversation discussed specific analytics: Reference and confirm
+      Example: User mentioned needing game performance metrics
+      → Say: "I see you need game performance analytics. Should I implement that?"
+
+   c) If no clear context: Start requirements discovery from scratch
+      → Ask: "What analytics feature would you like to implement?"
+   ```
 
 ### Phase 1: Requirements Discovery
 

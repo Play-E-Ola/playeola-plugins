@@ -11,6 +11,48 @@ When API changes are made in one service (e.g., RGS), this command ensures that 
 
 ## Workflow
 
+### Phase 0: Context Gathering
+
+**IMPORTANT: Before detecting changes, gather context about what was modified and why.**
+
+1. **Review Recent Conversation History**
+   ```
+   - Read the last 10-15 messages before this command was invoked
+   - Identify what API changes were made
+   - Understand why the changes were needed
+   - Note if changes are breaking or non-breaking (from discussion)
+   - Look for mentions of affected services or endpoints
+   - Check for any migration considerations discussed
+   ```
+
+2. **Check Git Context**
+   ```
+   Run these commands:
+   - `git status` - See modified files
+   - `git diff` - Review changes to API files
+   - `git branch --show-current` - Identify which service
+   - `pwd` - Confirm current working directory/service
+   ```
+
+3. **Synthesize API Change Context**
+   ```
+   Build understanding:
+   - Which service was modified? (RGS, Game Engine, etc.)
+   - What API endpoints/contracts changed?
+   - What was the nature of changes? (new endpoint, modified response, etc.)
+   - Is this a breaking change?
+   - Which services consume this API? (from conversation or analysis)
+   ```
+
+4. **Confirm Scope**
+   ```
+   Before proceeding:
+   - State what changes you detected
+   - Ask if there are other services that need doc updates
+   - Clarify if this should sync docs in other service repos
+     (or just document the changes in current service)
+   ```
+
 ### Phase 1: Change Detection
 
 1. **Identify the Current Service**

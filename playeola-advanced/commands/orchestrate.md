@@ -9,7 +9,63 @@ Execute the most powerful workflow in the Playeola plugin ecosystem. This comman
 
 The `/orchestrate` command is your go-to for complex, multi-domain tasks that require coordination across code quality, gaming, microservices, analytics, and planning domains. It leverages the `agent-coordinator` to intelligently route work to the right specialists at the right time.
 
+**Task from command:** $ARGUMENTS
+
 ## Workflow
+
+### Phase 0: Context Gathering
+
+**IMPORTANT: Before starting the orchestration, gather context from multiple sources.**
+
+1. **Review Recent Conversation History**
+   ```
+   - Read the last 5-10 messages before this command was invoked
+   - Identify what the user was discussing, planning, or working on
+   - Look for mentioned features, bugs, files, or specific requirements
+   - Note any decisions or constraints mentioned
+   ```
+
+2. **Check Environment Context**
+   ```
+   Run these commands to understand current state:
+   - `git status` - See what files have been modified
+   - `git branch --show-current` - Check current branch name for clues
+   - `git log -5 --oneline` - Review recent commits
+   - `git diff --stat` - Get overview of changes (if any)
+   ```
+
+3. **Synthesize Task Context**
+   ```
+   Priority order for determining the task:
+
+   a) If $ARGUMENTS provided: Use that as primary task
+      Example: `/orchestrate Implement bonus buy feature`
+      → Task: "Implement bonus buy feature"
+
+   b) If conversation context is clear: Reference and confirm
+      Example: User was discussing adding analytics dashboard
+      → Say: "I see you were discussing adding an analytics dashboard. Should I orchestrate that implementation?"
+
+   c) If git context provides clues: Infer and confirm
+      Example: Branch name "feature/sticky-wilds" with modified game files
+      → Say: "I see you're on the sticky-wilds branch with game logic changes. Should I orchestrate the sticky wilds feature implementation?"
+
+   d) If no clear context: Ask explicitly
+      → Say: "What would you like me to orchestrate? I can help with:
+         - Feature implementation (e.g., 'Implement bonus buy feature')
+         - Analytics dashboard creation
+         - Cross-service features
+         - Planning and specification
+         - Optimization and refactoring"
+   ```
+
+4. **Confirm Task Before Proceeding**
+   ```
+   Before Phase 1, ensure you have a clear task:
+   - State the task as you understand it
+   - Ask for confirmation if there's any ambiguity
+   - Clarify scope if needed (MVP vs full implementation)
+   ```
 
 ### Phase 1: Task Understanding
 

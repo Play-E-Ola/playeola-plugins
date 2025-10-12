@@ -7,6 +7,47 @@ Execute a comprehensive smart commit workflow that ensures code quality before c
 
 ## Workflow
 
+### Phase 0: Context Gathering
+
+**IMPORTANT: Before starting code review, gather context about what was changed and why.**
+
+1. **Review Recent Conversation History**
+   ```
+   - Read the last 5-10 messages before this command was invoked
+   - Understand what changes were made and their purpose
+   - Note any specific requirements or constraints discussed
+   - Identify the type of change (feature, fix, refactor, etc.)
+   - Look for any testing or validation mentioned
+   ```
+
+2. **Check Git Status**
+   ```
+   Run these commands:
+   - `git status` - See all modified, staged, and untracked files
+   - `git diff` - Review all unstaged changes
+   - `git diff --staged` - Review staged changes (if any)
+   - `git log -3 --oneline` - Check recent commit style
+   ```
+
+3. **Synthesize Change Context**
+   ```
+   Build understanding of the changes:
+   - What was modified? (from git diff + conversation)
+   - Why was it modified? (from conversation)
+   - What type of commit is this? (feat/fix/refactor/docs/etc.)
+   - Were there any issues encountered and fixed?
+   - What was the thought process behind the changes?
+   ```
+
+4. **Use Context for Review & Commit**
+   ```
+   The gathered context will help:
+   - Focus code review on relevant concerns
+   - Write accurate commit message reflecting actual work
+   - Identify appropriate commit type
+   - Ensure documentation matches what was actually done
+   ```
+
 ### Phase 1: Code Review
 1. Invoke the `code-review-expert` agent to review all uncommitted changes
 2. Analyze findings by severity (critical, important, suggestions)
