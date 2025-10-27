@@ -73,6 +73,7 @@ Note: ChunkHound is installed **per-project**, not in this marketplace repositor
 - `code-review-expert` agent - Comprehensive code review, enforces Claude.md rules
 - `documentation-orchestrator` agent - Keeps docs in sync with code
 - `/smart-commit` command - Code review → fix → update docs → commit
+- `/optimize-docs` command - Audit all docs → remove obsolete → update → reorganize
 - Smart hooks - Auto-suggestions, safety checks
 
 **Installation:**
@@ -83,6 +84,7 @@ Note: ChunkHound is installed **per-project**, not in this marketplace repositor
 **Use Cases:**
 - Automated code quality checks before committing
 - Documentation always stays current
+- Proactive documentation audits and optimization
 - Enforces project-specific rules from Claude.md
 - Prevents committing secrets or sensitive data
 
@@ -236,6 +238,7 @@ playeola-plugins/                    (marketplace root)
 |---------|---------|---------|---------|---------|
 | Code Review | ✅ | ✅ | ✅ | ✅ |
 | Documentation Sync | ✅ | ✅ | ✅ | ✅ |
+| Documentation Optimization | ✅ | ✅ | ✅ | ✅ |
 | Smart Commit | ✅ | ✅ | ✅ | ✅ |
 | Slot Game Expertise | - | ✅ | ✅ | ✅ |
 | Microservices Orchestration | - | ✅ | ✅ | ✅ |

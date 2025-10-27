@@ -37,6 +37,22 @@ Intelligent commit workflow that ensures quality before committing.
 3. **Update Docs** - Syncs documentation via `documentation-orchestrator`
 4. **Create Commit** - Generates proper commit message and commits
 
+#### `/optimize-docs`
+Comprehensive documentation optimization workflow that proactively audits all project documentation.
+
+**What it does:**
+1. **Discover** - Finds all documentation files across the project
+2. **Analyze** - Identifies obsolete files, outdated content, and structural issues
+3. **Optimize** - Removes obsolete docs, updates outdated content, reorganizes structure
+4. **Validate** - Ensures code examples work and references are accurate
+5. **Summary** - Provides clear navigation guide for optimized documentation
+
+**Use when:**
+- Starting work on an unfamiliar project
+- Documentation feels scattered or outdated
+- Preparing for team onboarding
+- Planning a major feature (need accurate context)
+
 ### Hooks
 
 Smart automation that triggers at the right moments:
@@ -65,16 +81,23 @@ Please review my code using the code-review-expert agent
 Please update the documentation
 ```
 
-### Workflow Command
+### Workflow Commands
 ```
 /smart-commit
+/optimize-docs
 ```
 
-This will:
+**`/smart-commit`** will:
 1. Review your code
 2. Fix any issues
 3. Update documentation
 4. Create a quality commit
+
+**`/optimize-docs`** will:
+1. Audit all documentation
+2. Identify obsolete/outdated files
+3. Update and reorganize documentation
+4. Ensure accuracy and improve navigation
 
 ## Works With
 
